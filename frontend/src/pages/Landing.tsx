@@ -31,7 +31,7 @@ export function Landing() {
         <header className="flex items-center justify-between border-b border-primary/20 px-4 md:px-10 py-6">
           <div className="flex items-center gap-4">
             <span className="material-symbols-outlined text-3xl text-primary">terminal</span>
-            <h2 className="text-slate-100 text-xl font-bold tracking-tight">outdoor</h2>
+            <h2 className="text-slate-100 text-xl font-bold tracking-tight">krew.life</h2>
           </div>
           <div className="flex items-center gap-6 md:gap-9">
             <Link to="/login" className="text-slate-400 hover:text-primary transition-colors text-sm font-medium hidden md:inline">
@@ -104,7 +104,7 @@ export function Landing() {
         </main>
 
         <footer className="mt-auto py-10 px-4 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-primary/10">
-          <p className="text-slate-500 text-xs font-medium">© 2025 OUTDOOR. ALL RIGHTS RESERVED.</p>
+          <p className="text-slate-500 text-xs font-medium">© 2025 KREW.LIFE. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
             <a href="#" className="text-slate-500 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest">Privacy</a>
             <a href="#" className="text-slate-500 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest">Status</a>

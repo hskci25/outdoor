@@ -103,7 +103,7 @@ export function Events() {
         <span className="text-primary font-bold tracking-widest text-xs uppercase">MATCH CONFIRMED</span>
         <h1 className="text-white text-4xl md:text-5xl font-black tracking-tight">Your Session is Ready</h1>
         <p className="text-slate-400 text-lg">
-          Your badminton session has been fully funded by outdoor. See you there!
+          Your badminton session has been fully funded by krew.life. See you there!
         </p>
       </div>
 
@@ -151,7 +151,7 @@ export function Events() {
               </div>
             </div>
             <div className="bg-primary/10 px-6 md:px-8 py-3 border-t border-white/5 flex flex-wrap justify-between items-center gap-2">
-              <span className="text-primary text-xs font-bold uppercase tracking-tighter">Powered by outdoor</span>
+              <span className="text-primary text-xs font-bold uppercase tracking-tighter">Powered by krew.life</span>
               <span className="text-slate-500 text-xs">Valid until session date</span>
             </div>
           </div>
@@ -218,7 +218,7 @@ export function Events() {
               <div className="bg-primary/5 rounded-lg p-4 flex gap-3 border border-primary/20">
                 <span className="material-symbols-outlined text-primary">payments</span>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  <strong className="text-primary">outdoor guarantee:</strong> You won&apos;t be charged for any
+                  <strong className="text-primary">krew.life guarantee:</strong> You won&apos;t be charged for any
                   services included in this session package.
                 </p>
               </div>

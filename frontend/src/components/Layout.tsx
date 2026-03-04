@@ -67,7 +67,7 @@ export function Layout() {
             <span className="material-symbols-outlined font-bold">terminal</span>
           </div>
           <div>
-            <h1 className="text-lg font-bold leading-tight tracking-tight text-white">outdoor</h1>
+            <h1 className="text-lg font-bold leading-tight tracking-tight text-white">krew.life</h1>
             <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Invite-only access</p>
           </div>
         </div>

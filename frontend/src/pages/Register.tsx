@@ -44,7 +44,7 @@ export function Register() {
       <header className="border-b border-primary/20 px-4 md:px-10 py-6">
         <Link to="/" className="flex items-center gap-4 w-fit">
           <span className="material-symbols-outlined text-3xl text-primary">terminal</span>
-          <h2 className="text-slate-100 text-xl font-bold tracking-tight">outdoor</h2>
+          <h2 className="text-slate-100 text-xl font-bold tracking-tight">krew.life</h2>
         </Link>
       </header>
       <main className="flex-1 flex items-center justify-center px-4 py-12">

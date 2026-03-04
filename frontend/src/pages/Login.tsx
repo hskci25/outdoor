@@ -38,7 +38,7 @@ export function Login() {
             <div className="size-10 bg-primary rounded-lg flex items-center justify-center text-[#0a0a0a]">
               <span className="material-symbols-outlined font-bold text-2xl">terminal</span>
             </div>
-            <h2 className="text-3xl font-black tracking-tighter text-white">outdoor</h2>
+            <h2 className="text-3xl font-black tracking-tighter text-white">krew.life</h2>
           </Link>
           <div className="space-y-4">
             <h1 className="text-5xl font-black leading-tight text-white">
@@ -177,7 +177,7 @@ export function Login() {
             <span className="material-symbols-outlined text-xs font-bold">terminal</span>
           </div>
           <Link to="/" className="font-bold text-white">
-            outdoor
+            krew.life
           </Link>
         </div>
       </div>

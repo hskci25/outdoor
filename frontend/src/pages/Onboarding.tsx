@@ -145,7 +145,7 @@ export function Onboarding() {
         <div className="flex items-center gap-4">
           <span className="material-symbols-outlined text-primary text-3xl">terminal</span>
           <h2 className="text-white text-lg font-bold tracking-tight uppercase font-mono">
-            outdoor<span className="text-primary animate-pulse">_</span>
+            krew.life<span className="text-primary animate-pulse">_</span>
           </h2>
         </div>
         <div className="flex items-center gap-6">
@@ -280,7 +280,7 @@ export function Onboarding() {
               <div className="bg-[#0a0a0a] p-6 rounded-lg border border-[#262626] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
                 <p className="font-mono text-sm text-slate-300 leading-relaxed whitespace-pre-wrap">
-                  <span className="text-primary font-bold">root@outdoor:~$</span> cat description.txt{'\n\n'}
+                  <span className="text-primary font-bold">root@krew.life:~$</span> cat description.txt{'\n\n'}
                   {bio || "Add a bio in your profile to tell others what you're into."}
                 </p>
               </div>
@@ -458,7 +458,7 @@ export function Onboarding() {
 
       <footer className="border-t border-[#262626] py-6 flex flex-col items-center gap-4 bg-[#0a0a0a] mt-auto">
         <div className="flex items-center gap-6 flex-wrap justify-center">
-          <p className="text-slate-600 text-[10px] font-bold uppercase tracking-widest font-mono">outdoor</p>
+          <p className="text-slate-600 text-[10px] font-bold uppercase tracking-widest font-mono">krew.life</p>
           <div className="size-1 rounded-full bg-primary/50" />
           <Link to="/app" className="text-primary text-[10px] font-bold uppercase tracking-widest font-mono hover:underline">
             Dashboard
