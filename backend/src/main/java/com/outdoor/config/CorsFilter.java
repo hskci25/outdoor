@@ -4,6 +4,9 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.Ordered;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -13,15 +16,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Runs first to add CORS headers to every response and handle OPTIONS preflight.
- * Registered with FilterRegistrationBean so it runs before Spring Security.
+ * Runs first to add CORS headers and handle OPTIONS preflight before Spring Security.
  */
-public class CorsFilter extends OncePerRequestFilter {
+@Component
+public class CorsFilter extends OncePerRequestFilter implements Ordered {
 
-    private final String corsAllowedOrigins;
+    private static final String RENDER_FRONTEND = "https://outdoor-frontend.onrender.com";
 
-    public CorsFilter(String corsAllowedOrigins) {
-        this.corsAllowedOrigins = corsAllowedOrigins != null ? corsAllowedOrigins : "";
+    @Value("${cors.allowed-origins:}")
+    private String corsAllowedOrigins;
+
+    @Override
+    public int getOrder() {
+        return Ordered.HIGHEST_PRECEDENCE;
     }
 
     @Override
@@ -45,13 +52,16 @@ public class CorsFilter extends OncePerRequestFilter {
     }
 
     private boolean isAllowedOrigin(String origin) {
-        if (!StringUtils.hasText(this.corsAllowedOrigins)) {
-            return origin.startsWith("http://localhost:") || origin.startsWith("http://127.0.0.1:");
+        if (origin == null) return false;
+        String o = origin.trim();
+        if (RENDER_FRONTEND.equals(o)) return true;
+        if (!StringUtils.hasText(corsAllowedOrigins)) {
+            return o.startsWith("http://localhost:") || o.startsWith("http://127.0.0.1:");
         }
-        List<String> allowed = Arrays.stream(this.corsAllowedOrigins.split(","))
+        List<String> allowed = Arrays.stream(corsAllowedOrigins.split(","))
                 .map(String::trim)
                 .filter(StringUtils::hasText)
                 .collect(Collectors.toList());
-        return allowed.contains(origin);
+        return allowed.contains(o);
     }
 }
