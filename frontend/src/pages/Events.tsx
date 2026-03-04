@@ -1,7 +1,6 @@
 import { QRCodeSVG } from 'qrcode.react'
 
 const BORDER_GREY = '#2D2D2D'
-const CARD_CHARCOAL = '#1A1A1A'
 const VOUCHER_ID = 'OUT-BAD-001'
 
 export function Events() {
