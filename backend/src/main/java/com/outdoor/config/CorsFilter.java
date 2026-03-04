@@ -22,6 +22,11 @@ import java.util.stream.Collectors;
 public class CorsFilter extends OncePerRequestFilter implements Ordered {
 
     private static final String RENDER_FRONTEND = "https://outdoor-frontend.onrender.com";
+    private static final List<String> ALWAYS_ALLOWED_ORIGINS = List.of(
+        "https://outdoor-frontend.onrender.com",
+        "https://krew.life",
+        "https://www.krew.life"
+    );
 
     @Value("${cors.allowed-origins:}")
     private String corsAllowedOrigins;
@@ -54,7 +59,7 @@ public class CorsFilter extends OncePerRequestFilter implements Ordered {
     private boolean isAllowedOrigin(String origin) {
         if (origin == null) return false;
         String o = origin.trim();
-        if (RENDER_FRONTEND.equals(o)) return true;
+        if (ALWAYS_ALLOWED_ORIGINS.contains(o)) return true;
         if (!StringUtils.hasText(corsAllowedOrigins)) {
             return o.startsWith("http://localhost:") || o.startsWith("http://127.0.0.1:");
         }
