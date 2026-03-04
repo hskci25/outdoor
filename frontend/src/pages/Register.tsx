@@ -8,6 +8,7 @@ export function Register() {
   const [displayName, setDisplayName] = useState('')
   const [inviteCode, setInviteCode] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -19,6 +20,7 @@ export function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    setLoading(true)
     try {
       const { data } = await api.post<{ token: string }>('/auth/register', {
         email,
@@ -29,7 +31,11 @@ export function Register() {
       localStorage.setItem('token', data.token)
       navigate('/onboarding', { replace: true })
     } catch (err: unknown) {
-      setError((err as { response?: { data?: { message?: string } } })?.response?.data?.message ?? 'Registration failed')
+      const ax = err as { response?: { data?: { message?: string }; status?: number }; message?: string }
+      const msg = ax.response?.data?.message ?? (ax.response?.status === 400 ? 'Check your invite code and details.' : ax.message) ?? 'Registration failed. Please try again.'
+      setError(msg)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -88,9 +94,18 @@ export function Register() {
                 required
               />
             </div>
-            {error && <p className="text-sm text-red-400">{error}</p>}
-            <button type="submit" className="w-full rounded-lg h-12 bg-primary text-[#0a0a0a] font-bold hover:brightness-110 transition-all">
-              Sign up
+            {error && (
+              <div className="flex items-start gap-3 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3" role="alert">
+                <span className="material-symbols-outlined text-red-400 text-lg flex-shrink-0 mt-0.5">error</span>
+                <p className="text-sm text-red-200">{error}</p>
+              </div>
+            )}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-lg h-12 bg-primary text-[#0a0a0a] font-bold hover:brightness-110 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Creating account…' : 'Sign up'}
             </button>
           </form>
           <p className="mt-6 text-sm text-slate-400 text-center">

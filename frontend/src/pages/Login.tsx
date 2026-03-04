@@ -19,9 +19,9 @@ export function Login() {
       localStorage.setItem('token', data.token)
       navigate('/onboarding', { replace: true })
     } catch (err: unknown) {
-      setError(
-        (err as { response?: { data?: { message?: string } } })?.response?.data?.message ?? 'Login failed'
-      )
+      const ax = err as { response?: { data?: { message?: string }; status?: number }; message?: string }
+      const msg = ax.response?.data?.message ?? (ax.response?.status === 401 ? 'Invalid email or password.' : ax.message) ?? 'Login failed. Please try again.'
+      setError(msg)
     } finally {
       setLoading(false)
     }
@@ -143,9 +143,10 @@ export function Login() {
                 </label>
               </div>
               {error && (
-                <p className="text-sm text-red-400" role="alert">
-                  {error}
-                </p>
+                <div className="flex items-start gap-3 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3" role="alert">
+                  <span className="material-symbols-outlined text-red-400 text-lg flex-shrink-0 mt-0.5">error</span>
+                  <p className="text-sm text-red-200">{error}</p>
+                </div>
               )}
               <button
                 type="submit"
