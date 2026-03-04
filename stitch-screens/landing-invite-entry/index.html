@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevNetwork | Exclusive Developer Community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f98006",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0a0a0a",
+                        "surface-dark": "#1a130c",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .code-texture {
+            background-image: radial-gradient(circle at 2px 2px, rgba(249, 128, 6, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .terminal-text {
+            text-shadow: 0 0 20px rgba(249, 128, 6, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen selection:bg-primary/30">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden code-texture">
+<!-- Subtle code snippet background elements -->
+<div class="absolute top-20 left-10 opacity-10 pointer-events-none font-mono text-xs hidden lg:block">
+<pre>const match = (devA, devB) =&gt; {
+  return devA.skills.intersect(devB.skills);
+};
+            </pre>
+</div>
+<div class="absolute bottom-20 right-10 opacity-10 pointer-events-none font-mono text-xs hidden lg:block text-right">
+<pre>while(playingBadminton) {
+  smash();
+  drinkCoffee();
+}
+            </pre>
+</div>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 px-4 md:px-10 py-6">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">DevNetwork</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Community</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Events</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-background-dark text-sm font-bold leading-normal tracking-tight hover:brightness-110 transition-all">
+<span>Login</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col items-center justify-center grow py-12 md:py-24">
+<!-- Invite Badge -->
+<div class="flex gap-3 p-3 flex-wrap justify-center mb-6">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 border border-primary/30 px-6 shadow-[0_0_15px_rgba(249,128,6,0.2)]">
+<span class="material-symbols-outlined text-primary text-xl">lock_open</span>
+<p class="text-primary text-sm font-bold uppercase tracking-widest">Invite-Only Access</p>
+</div>
+</div>
+<!-- Hero Title -->
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-5xl md:text-7xl font-bold leading-[1.1] px-4 text-center pb-6 terminal-text">
+                            Connect. <span class="text-primary">Build.</span> Play.
+                        </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-2xl text-center px-4 mb-12">
+                            The exclusive, skill-based matching ecosystem for high-performing developers. Join the inner circle for tech synergy, badminton sessions, and deep architectural discussions.
+                        </p>
+<!-- Invite Input Section -->
+<div class="@container w-full max-w-xl">
+<div class="flex flex-col gap-6 px-4">
+<div class="flex flex-col gap-2 text-center">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Verify Membership</h3>
+<p class="text-slate-500 dark:text-slate-500 text-sm">Access to this environment is restricted to verified engineers.</p>
+</div>
+<div class="flex flex-1 justify-center">
+<div class="flex flex-col w-full group">
+<div class="flex w-full items-stretch rounded-xl h-16 border-2 border-primary/30 focus-within:border-primary transition-all bg-surface-dark/50 overflow-hidden shadow-2xl">
+<div class="flex items-center pl-5 text-primary/50 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">key</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-slate-100 focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-slate-600 px-4 text-lg font-mono uppercase tracking-[0.2em]" maxlength="14" placeholder="XXXX-XXXX-XXXX"/>
+<div class="flex items-center p-2">
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-background-dark text-base font-bold leading-normal tracking-tight hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span>Join the Elite</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Indicators -->
+<div class="flex justify-center gap-8 mt-8 grayscale opacity-40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-[10px] uppercase tracking-tighter font-bold">Encrypted Connection</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">code</span>
+<span class="text-[10px] uppercase tracking-tighter font-bold">128-Bit Logic</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto py-10 px-4 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-primary/10">
+<p class="text-slate-500 text-xs font-medium">© 2024 DEVNETWORK INNER CIRCLE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest" href="#">Privacy Protocol</a>
+<a class="text-slate-500 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest" href="#">System Status</a>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

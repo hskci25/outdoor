@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #f98006;
+  --color-primary-hover: #ff9a2e;
+  --color-background-dark: #0a0a0a;
+  --color-surface-dark: #1a130c;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-background-dark);
+  color: #f1f5f9;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.code-texture {
+  background-image: radial-gradient(circle at 2px 2px, rgba(249, 128, 6, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.terminal-text {
+  text-shadow: 0 0 20px rgba(249, 128, 6, 0.3);
+}
+
+.selection\:bg-primary\/30::selection {
+  background-color: rgba(249, 128, 6, 0.3);
+}
+
+.nav-active-glow {
+  text-shadow: 0 0 8px rgba(249, 128, 6, 0.6);
+  filter: drop-shadow(0 0 5px rgba(249, 128, 6, 0.4));
+}
+
+.orange-glow {
+  box-shadow: 0 0 15px rgba(249, 128, 6, 0.15);
+}
+
+.qr-glow {
+  box-shadow: 0 0 20px rgba(249, 128, 6, 0.3);
+}

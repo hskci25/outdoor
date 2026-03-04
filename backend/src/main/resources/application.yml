@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: outdoor-backend
+  data:
+    mongodb:
+      # Remote Atlas (override with MONGODB_URI env when deploying to a remote server)
+      uri: mongodb+srv://ashutosh:hskci%4025@cluster0.3i1cleo.mongodb.net/outdoor?retryWrites=true&w=majority&appName=Cluster0
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+# JWT (override in env or application-local.yml)
+jwt:
+  secret: ${JWT_SECRET:change-me-in-production-use-long-secret}
+  expiration-ms: 86400000  # 24 hours
+
+# Matching job: cron (daily at 6 AM)
+matching:
+  cron: "0 0 6 * * ?"
+  cooldown-days: 90
+
+# Bootstrap: use this code to create the very first user when the database is empty (override with BOOTSTRAP_INVITE_CODE if needed)
+bootstrap:
+  invite-code: ${BOOTSTRAP_INVITE_CODE:OUTDOOR_FIRST}
+
+# CORS: set CORS_ALLOWED_ORIGINS in production (comma-separated), e.g. https://your-app.vercel.app
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:}
+

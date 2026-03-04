@@ -1,0 +1,133 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f48c25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#161109",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+<div class="flex min-h-screen w-full flex-col lg:flex-row">
+<!-- Left Side: Hero Image Section -->
+<div class="relative hidden w-full lg:flex lg:w-1/2 items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-tr from-background-dark via-transparent to-primary/20 mix-blend-multiply z-10"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="Developer at a dark desk with orange neon accent lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpj97XccgFeIXwFovLtQQ4PERpUPn-xpkztvCEjrdynBIFfvk3jdQjdVgAZUlS2ru_qndcTNOY-7rupmyyRCcxodE3VeOvrmUUaXBzLJvQfiv3cX2RQ8aUCSYmEHV9DjdIvLlZuUN8avePNklxFJEVXPTSaaI_ELFG7yxmq7ysP3ZvLJxRk4lsufDd0sc9oMq12gUXLfk6fZrkedegx2b5rrwQ0CnZzhjGfkJdIPWzjn0zlXi4tt24BWp0k5onALu394OwhMfm3GI');"></div>
+</div>
+<div class="relative z-20 px-12 py-20 flex flex-col gap-8 max-w-xl">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">terminal</span>
+</div>
+<h2 class="text-3xl font-black tracking-tighter text-white">DevNetwork</h2>
+</div>
+<div class="space-y-4">
+<h1 class="text-5xl font-black leading-tight text-white">
+                        Connect. <span class="text-primary">Code.</span> Smash.
+                    </h1>
+<p class="text-slate-300 text-lg leading-relaxed">
+                        The exclusive invite-only community where top-tier developers meet for coffee, badminton matches, and late-night architectural debates.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">coffee</span>
+<span class="text-sm font-medium text-slate-200">Weekly Coffee</span>
+</div>
+<div class="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">sports_tennis</span>
+<span class="text-sm font-medium text-slate-200">Badminton League</span>
+</div>
+<div class="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">groups</span>
+<span class="text-sm font-medium text-slate-200">Dev Talks</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Login Form Section -->
+<div class="flex flex-1 flex-col items-center justify-center px-6 py-12 lg:px-24 bg-background-light dark:bg-background-dark">
+<div class="w-full max-w-md space-y-8">
+<div class="text-left space-y-2">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Welcome Back</h2>
+<p class="text-slate-500 dark:text-slate-400">Enter your credentials to access the network</p>
+</div>
+<div class="mt-10 space-y-6">
+<button class="flex w-full items-center justify-center gap-3 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-background-dark transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark">
+<svg aria-hidden="true" class="h-5 w-5 fill-current" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+<span>Login with GitHub</span>
+</button>
+<div class="relative">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200 dark:border-primary/20"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-background-light dark:bg-background-dark px-2 text-slate-500 dark:text-slate-400">Or continue with email</span>
+</div>
+</div>
+<form action="#" class="space-y-5" method="POST">
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="email">Email address</label>
+<input autocomplete="email" class="block w-full rounded-lg border border-slate-200 dark:border-primary/20 bg-white dark:bg-background-dark/50 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary sm:text-sm" id="email" name="email" placeholder="developer@example.com" required="" type="email"/>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="password">Password</label>
+<a class="text-xs font-semibold text-primary hover:text-primary/80" href="#">Forgot password?</a>
+</div>
+<input autocomplete="current-password" class="block w-full rounded-lg border border-slate-200 dark:border-primary/20 bg-white dark:bg-background-dark/50 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary sm:text-sm" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-slate-300 dark:border-primary/40 text-primary focus:ring-primary" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-sm text-slate-600 dark:text-slate-400" for="remember-me">Keep me logged in</label>
+</div>
+<button class="flex w-full justify-center rounded-lg border border-primary px-4 py-3 text-sm font-bold text-primary transition-all hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" type="submit">
+                            Sign in to Network
+                        </button>
+</form>
+</div>
+<div class="mt-10 border-t border-slate-200 dark:border-primary/10 pt-8 text-center">
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                        New to the circle? 
+                        <a class="font-bold text-primary hover:underline hover:underline-offset-4 decoration-2" href="#">
+                            Redeem Invite Code
+                        </a>
+</p>
+</div>
+</div>
+<!-- Mobile Footer Logo -->
+<div class="mt-12 flex lg:hidden items-center gap-2">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined text-xs font-bold">terminal</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">DevNetwork</span>
+</div>
+</div>
+</div>
+
+```</body></html>

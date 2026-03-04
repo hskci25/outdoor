@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platform Funded Voucher - DevConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0a0a0a",
+                        "charcoal": "#1a1a1a",
+                        "accent-dark": "#261a0d",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .qr-glow {
+            box-shadow: 0 0 20px rgba(242, 127, 13, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-6 py-4 md:px-20 lg:px-40">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+<h2 class="text-slate-100 text-xl font-extrabold tracking-tight">DevConnect</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-charcoal border border-white/5">
+<div class="text-slate-400 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent text-slate-100 focus:ring-0 placeholder:text-slate-500 text-sm font-normal" placeholder="Search events or venues" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-semibold" href="#">Meetings</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-semibold" href="#">Venues</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-semibold" href="#">Community</a>
+</nav>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-charcoal border border-white/10 text-slate-300 hover:text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-charcoal border border-white/10 text-slate-300 hover:text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center py-10 px-6">
+<div class="max-w-[960px] w-full flex flex-col gap-8">
+<!-- Title Section -->
+<div class="flex flex-col gap-2">
+<span class="text-primary font-bold tracking-widest text-xs uppercase">MATCH CONFIRMED</span>
+<h1 class="text-slate-100 text-4xl md:text-5xl font-black tracking-tight">Your Session is Ready</h1>
+<p class="text-slate-400 text-lg">Your networking session has been fully funded by DevConnect. See you there!</p>
+</div>
+<!-- Voucher Card -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<!-- Left: Digital Voucher -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="bg-charcoal border border-white/10 rounded-xl overflow-hidden shadow-2xl relative">
+<!-- Top Accent Bar -->
+<div class="h-2 w-full bg-primary"></div>
+<div class="p-8 flex flex-col md:flex-row gap-8 items-center">
+<!-- QR Code Section -->
+<div class="flex flex-col items-center gap-4 bg-white p-6 rounded-xl qr-glow shrink-0">
+<div class="w-40 h-40 bg-center bg-no-repeat bg-contain" data-alt="Glowing orange QR code for session verification" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCmZV0ZYiZzM2qW0FVxBjj7wJUR6MMEaIhyJtrCPjbtpMozSCHzR7stekHNRQp-vC0gmh3TFj02Dq51axmw_I3z56RmWeCqskFjPTxDszwF64rWVRZIJXERzMP9FUCjONqm3saXgiwKQjgutILrvKLdPhI0AFSfrxyGytw9UUlJVT07wTem3keW6NArN0BRwpBWvt75DAxKdw9YE-iFaDCkvng2_41x_V-qcEPT-Ekoaov4fb3NR1wC83ntzsusl4uft-4O1_k-vw");'>
+</div>
+<span class="text-slate-900 font-mono text-sm font-bold">#DC-8821-XP</span>
+</div>
+<!-- Voucher Content -->
+<div class="flex flex-col gap-4 flex-1">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-sm font-bold uppercase tracking-widest">Platform Funded Voucher</span>
+</div>
+<h3 class="text-slate-100 text-2xl font-bold">Networking &amp; Badminton Session</h3>
+<p class="text-slate-400 text-base leading-relaxed">Present this digital voucher at the reception. All court fees and coffee refreshments are covered under your invitation.</p>
+<div class="flex flex-wrap gap-4 mt-2">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-background-dark px-6 py-3 rounded-lg font-bold transition-all transform active:scale-95">
+<span class="material-symbols-outlined">download</span>
+                                                Download PDF
+                                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-100 px-6 py-3 rounded-lg font-bold transition-all">
+<span class="material-symbols-outlined">share</span>
+                                                Invite Partner
+                                            </button>
+</div>
+</div>
+</div>
+<!-- Voucher Footer Deco -->
+<div class="bg-primary/10 px-8 py-3 border-t border-white/5 flex justify-between items-center">
+<span class="text-primary text-xs font-bold uppercase tracking-tighter">Powered by DevConnect Networking Fund</span>
+<span class="text-slate-500 text-xs">Valid until Oct 24, 2023</span>
+</div>
+</div>
+<!-- Map / Venue Context -->
+<div class="bg-charcoal/50 border border-white/5 rounded-xl p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h4 class="text-slate-100 font-bold">Venue Location</h4>
+</div>
+<div class="w-full h-48 rounded-lg bg-slate-800 relative overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-500" data-alt="Map showing location of The Caffeine Code venue" data-location="The Caffeine Code, Tech District" style='background-image: url("https://placeholder.pics/svg/300");'>
+</div>
+<div class="absolute bottom-4 left-4 bg-charcoal/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 text-xs text-slate-100">
+                                        The Caffeine Code / Smash Court
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Right: Details Sidebar -->
+<div class="flex flex-col gap-6">
+<div class="bg-charcoal border border-white/10 rounded-xl p-6">
+<h3 class="text-slate-100 text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                                    Session Details
+                                </h3>
+<div class="space-y-6">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Partner Venue</p>
+<p class="text-slate-100 text-sm font-semibold">The Caffeine Code &amp; Smash Court</p>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Primary Activity</p>
+<p class="text-slate-100 text-sm font-semibold">Badminton + Post-game Dev Talk</p>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Date &amp; Time</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-primary">calendar_today</span>
+<p class="text-slate-100 text-sm font-semibold">October 24, 2023</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-primary">schedule</span>
+<p class="text-slate-100 text-sm font-semibold">6:00 PM (Local Time)</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Booking Status</p>
+<div class="flex items-center gap-2 text-emerald-500">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<p class="text-sm font-bold uppercase tracking-wide">Confirmed &amp; Funded</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5">
+<div class="bg-primary/5 rounded-lg p-4 flex gap-3 border border-primary/20">
+<span class="material-symbols-outlined text-primary">payments</span>
+<p class="text-xs text-slate-300 leading-relaxed">
+<strong class="text-primary">DevConnect Guarantee:</strong> You won't be charged for any services included in this session package.
+                                        </p>
+</div>
+</div>
+</div>
+<!-- Help / FAQ -->
+<div class="bg-accent-dark/30 border border-primary/10 rounded-xl p-6">
+<h4 class="text-slate-100 text-sm font-bold mb-3">Need help?</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-primary text-xs flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">help_outline</span> Venue entry instructions</a></li>
+<li><a class="text-slate-400 hover:text-primary text-xs flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">cancel</span> Rescheduling policy</a></li>
+<li><a class="text-slate-400 hover:text-primary text-xs flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">support_agent</span> Contact concierge</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-white/5 py-10 px-6 md:px-40 bg-charcoal">
+<div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3 opacity-50 grayscale">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-bold">DevConnect</span>
+</div>
+<p class="text-slate-500 text-xs">© 2023 DevConnect Platform. All rights reserved. Networking for builders.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary text-xs" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-primary text-xs" href="#">Terms</a>
+<a class="text-slate-500 hover:text-primary text-xs" href="#">Support</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Developer Profile - Midnight &amp; Fire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --midnight: #0D0D0D;
+            --fire: #FF6B00;
+            --panel: #161616;
+            --charcoal: #1A1A1A;
+            --border: #262626;
+        }
+        @layer base {
+            body {
+                @apply bg-[var(--midnight)] text-slate-300;
+            }
+        }
+        .ide-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF6B00",
+                        "background-dark": "#0D0D0D",
+                        "panel-dark": "#161616",
+                        "charcoal": "#1A1A1A",
+                        "border-dark": "#262626",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-dark font-display text-slate-300 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-dark group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between border-b border-border-dark px-10 py-4 bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight ide-font uppercase">DevNetwork<span class="text-primary animate-pulse">_</span></h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-400 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors ide-font" href="#">// Explorer</a>
+<a class="text-slate-400 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors ide-font" href="#">// Terminal</a>
+<a class="text-slate-400 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors ide-font" href="#">// Settings</a>
+</nav>
+<div class="h-8 w-px bg-border-dark"></div>
+<div class="flex items-center gap-3">
+<span class="text-slate-500 text-[10px] ide-font">AUTH_TOKEN: VALID</span>
+<div class="size-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-6 gap-8 max-w-[1400px] mx-auto w-full">
+<aside class="w-full max-w-[320px] flex flex-col gap-6">
+<div class="bg-charcoal border border-border-dark rounded-xl p-8 flex flex-col items-center text-center">
+<div class="relative mb-6">
+<div class="absolute -inset-1 bg-primary rounded-full blur opacity-25"></div>
+<div class="relative size-32 rounded-full border-4 border-primary glow-orange overflow-hidden bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATD4tO3IpjPxmzsIDozvQFXdnBxdWiOL3tXb2pjtqGHSwbEL0dyzDHjSrxJuUXST9CN_cP-cuUSw8IfOYp66G5Nx55IBUQU91GryFm2gwqvR8nX5xxq_-ifc5nzJR7f-Y1Zvikk30l64N4XLH2C70G1Wb5jw_0bnp_2MeFSegsuXytGCdzwlzsqqXitn6XE3kCY4QpSaayYUzNEtmiO7k2ddRWdzu-wgSnn1g4RMIdVKJWk33-esJzKh_yxusOI8vSIxOGNB53lMQ");'></div>
+<div class="absolute bottom-1 right-1 size-6 bg-green-500 rounded-full border-4 border-charcoal"></div>
+</div>
+<h1 class="text-white text-2xl font-black mb-1 ide-font">Alex Rivera</h1>
+<p class="text-primary text-sm font-bold ide-font uppercase tracking-tight mb-6">Senior Backend Engineer @ Fintech Solutions</p>
+<div class="w-full h-px bg-border-dark mb-6"></div>
+<div class="flex flex-col gap-4 w-full">
+<a class="flex items-center gap-3 text-slate-400 hover:text-primary transition-colors ide-font text-sm" href="#">
+<span class="material-symbols-outlined text-lg">link</span>
+<span>github.com/arivera</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-primary transition-colors ide-font text-sm" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+<span>linkedin.com/in/arivera</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-primary transition-colors ide-font text-sm" href="#">
+<span class="material-symbols-outlined text-lg">language</span>
+<span>arivera.dev</span>
+</a>
+</div>
+</div>
+<div class="bg-charcoal border border-border-dark rounded-xl p-6">
+<h3 class="text-white text-xs font-bold ide-font uppercase tracking-[0.2em] mb-4 border-l-2 border-primary pl-3">Stats_Output</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-background-dark p-3 rounded border border-border-dark">
+<p class="text-slate-500 text-[10px] ide-font uppercase">Reputation</p>
+<p class="text-white text-lg font-bold ide-font">1.2k</p>
+</div>
+<div class="bg-background-dark p-3 rounded border border-border-dark">
+<p class="text-slate-500 text-[10px] ide-font uppercase">Matches</p>
+<p class="text-white text-lg font-bold ide-font">48</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col gap-8 max-w-[720px]">
+<section class="bg-charcoal border border-border-dark rounded-xl p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">description</span>
+<h2 class="text-white text-lg font-bold ide-font uppercase tracking-tight">System.Bio</h2>
+</div>
+<div class="bg-background-dark p-6 rounded-lg border border-border-dark relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<p class="ide-font text-sm text-slate-300 leading-relaxed">
+<span class="text-primary font-bold">root@arivera:~$</span> cat description.txt<br/><br/>
+                            Specializing in distributed systems and high-throughput microservices. Currently obsessed with Rust performance optimization and event-driven architectures.<br/><br/>
+                            Always down for a 6:00 AM badminton session or debating the merits of various JS frameworks over strong pour-over coffee.
+                        </p>
+</div>
+</section>
+<section class="bg-charcoal border border-border-dark rounded-xl p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">stack</span>
+<h2 class="text-white text-lg font-bold ide-font uppercase tracking-tight">Tech_Stack</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 rounded border border-primary text-primary text-xs font-bold ide-font bg-primary/5 hover:bg-primary/10 cursor-default transition-all">Go_Lang</span>
+<span class="px-4 py-2 rounded border border-primary text-primary text-xs font-bold ide-font bg-primary/5 hover:bg-primary/10 cursor-default transition-all">Kubernetes</span>
+<span class="px-4 py-2 rounded border border-primary text-primary text-xs font-bold ide-font bg-primary/5 hover:bg-primary/10 cursor-default transition-all">Rust</span>
+<span class="px-4 py-2 rounded border border-primary text-primary text-xs font-bold ide-font bg-primary/5 hover:bg-primary/10 cursor-default transition-all">PostgreSQL</span>
+<span class="px-4 py-2 rounded border border-primary text-primary text-xs font-bold ide-font bg-primary/5 hover:bg-primary/10 cursor-default transition-all">gRPC</span>
+<span class="px-4 py-2 rounded border border-primary text-primary text-xs font-bold ide-font bg-primary/5 hover:bg-primary/10 cursor-default transition-all">Redis</span>
+</div>
+</section>
+<section class="bg-charcoal border border-border-dark rounded-xl p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">hub</span>
+<h2 class="text-white text-lg font-bold ide-font uppercase tracking-tight">Networking_Modules</h2>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="flex flex-col items-center gap-3 p-6 rounded-lg bg-background-dark border-2 border-primary shadow-[inset_0_0_15px_rgba(255,107,0,0.1)] relative">
+<span class="material-symbols-outlined text-4xl text-primary">sports_tennis</span>
+<span class="text-xs font-bold text-white ide-font uppercase tracking-widest">Badminton</span>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<span class="text-[8px] text-primary ide-font font-bold">ACTIVE</span>
+<div class="size-1.5 rounded-full bg-primary animate-pulse"></div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3 p-6 rounded-lg bg-background-dark border-2 border-primary shadow-[inset_0_0_15px_rgba(255,107,0,0.1)] relative">
+<span class="material-symbols-outlined text-4xl text-primary">coffee</span>
+<span class="text-xs font-bold text-white ide-font uppercase tracking-widest">Coffee</span>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<span class="text-[8px] text-primary ide-font font-bold">ACTIVE</span>
+<div class="size-1.5 rounded-full bg-primary animate-pulse"></div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-3 p-6 rounded-lg bg-background-dark border-2 border-primary shadow-[inset_0_0_15px_rgba(255,107,0,0.1)] relative">
+<span class="material-symbols-outlined text-4xl text-primary">forum</span>
+<span class="text-xs font-bold text-white ide-font uppercase tracking-widest">Dev_Talks</span>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<span class="text-[8px] text-primary ide-font font-bold">ACTIVE</span>
+<div class="size-1.5 rounded-full bg-primary animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<aside class="w-full max-w-[300px] flex flex-col gap-6">
+<button class="w-full bg-primary text-black font-black py-4 px-6 rounded-lg ide-font uppercase tracking-widest shadow-[0_0_30px_rgba(255,107,0,0.3)] hover:brightness-110 hover:translate-y-[-2px] transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">send</span>
+                    Send Invitation
+                </button>
+<div class="bg-charcoal border border-border-dark rounded-xl p-6">
+<h3 class="text-white text-xs font-bold ide-font uppercase tracking-[0.2em] mb-6 border-l-2 border-primary pl-3">Mutual_Connections</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="size-10 rounded border border-border-dark bg-background-dark flex items-center justify-center overflow-hidden">
+<img alt="User" class="size-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxQqb8o0tY8wNPXLYQ5zBEzrZ56Bjstpd00mnG-X8L_ah_sgcC-ge5nqcxNagrTRSJNXYyzOMz58yM8JBYPU1anHSeQgEVke06FHhqYnmmpQqQmERu1WAEbiOHdYVdWxYxkklXNtiLS3LYSRcYH5iyZycQL79q0UuMoJqI5kmIe1zVVIH22n8wgdU68hH7g7d2OxGm41ow2C8ZBvih8BmBQKOIwFcXtVNxnjm0XmY3-P7qxzqgBKKxxaXRV7TuRs_38f2qWDJkzGI"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-bold ide-font group-hover:text-primary transition-colors">Sarah Chen</span>
+<span class="text-slate-500 text-[10px] ide-font">Frontend Lead @ TechCorp</span>
+</div>
+</div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="size-10 rounded border border-border-dark bg-background-dark flex items-center justify-center overflow-hidden">
+<img alt="User" class="size-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlvkoFiv16sNgr-zGx36x2V8zqe92UDFhuhipZwHlYr6iwEUbQgdZT03j_eH6Ch9bIRgr9Lmddav6OHM4M12y8P-zNHvAXVzlvU-ZLGHRzyv3CMeteBqVguvQbnGozZmQTFVebvhlEaq-wEyluR9-Erlgj8s2DZPsGsbtywXJHOXSRho7nacwkOdFYAZzqen7aO_vTWDErHB6TPvtGtL5SJneoWdP_f5XuKbcbDFQcg9ghuNPbVuTQjMqCwW2Lp_nBSNLJKxxmQLY"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-bold ide-font group-hover:text-primary transition-colors">Jordan Smith</span>
+<span class="text-slate-500 text-[10px] ide-font">DevOps Engineer</span>
+</div>
+</div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="size-10 rounded border border-border-dark bg-background-dark flex items-center justify-center overflow-hidden">
+<img alt="User" class="size-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE0S1IUB8lYTfn2M5idGLJcHx-V2GxNNXdma0Cllc69YSNOBvTsMkdX1q8A7BKBJ0ZHpr49LU6qqG9tjeACIc7aiNWKjqYMAy3EEo6wd8eOMn1WsHjSaloOSkEDAGEhzyaOute88xeJNqtSr83oPkKy7sVIEbW3bOdu56LO1FoIzoMB6gdR3zcAPH9gRt4rSK6auoEH1wTXbl4qxIpUjA62xd9MGUU9_ttiVTXoUW-DR1AzOlUt1tF0iNOZaXR--ttBl2Lo4q6-Ek"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-bold ide-font group-hover:text-primary transition-colors">Mia Wong</span>
+<span class="text-slate-500 text-[10px] ide-font">Staff Data Scientist</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-border-dark rounded text-slate-500 text-[10px] font-bold ide-font uppercase hover:border-primary/50 hover:text-primary transition-all">
+                        View_All (12)
+                    </button>
+</div>
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">info</span>
+<h4 class="text-primary text-[10px] font-bold ide-font uppercase">System_Status</h4>
+</div>
+<p class="text-slate-400 text-[11px] ide-font leading-relaxed">
+                        Member since: 2024-03-15<br/>
+                        Verified Developer Account<br/>
+                        Networking Score: 98.4%
+                    </p>
+</div>
+</aside>
+</main>
+<footer class="border-t border-border-dark py-8 flex flex-col items-center gap-4 bg-background-dark mt-auto">
+<div class="flex items-center gap-6">
+<p class="text-slate-600 text-[10px] font-bold uppercase tracking-[0.3em] ide-font">System.Runtime: DevNetwork_HQ</p>
+<div class="h-1 w-1 rounded-full bg-primary/50"></div>
+<p class="text-slate-700 text-[10px] ide-font uppercase">LATENCY: 14MS</p>
+<div class="h-1 w-1 rounded-full bg-primary/50"></div>
+<a class="text-primary text-[10px] font-bold uppercase tracking-[0.3em] ide-font hover:underline" href="#">Debug_Help</a>
+</div>
+<div class="text-[9px] text-slate-700 ide-font">
+                build_v2.0.4-stable
+            </div>
+</footer>
+</div>
+</div>
+
+</body></html>
