@@ -8,8 +8,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn -DskipTests clean package -B
 
-# Run stage
-FROM eclipse-temurin:17-jre-alpine
+# Run stage: use non-Alpine image for reliable TLS to MongoDB Atlas (Alpine often causes SSL handshake errors)
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 COPY --from=build /app/target/outdoor-backend-0.0.1-SNAPSHOT.jar app.jar
