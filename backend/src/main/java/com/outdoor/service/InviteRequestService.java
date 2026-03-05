@@ -51,6 +51,17 @@ public class InviteRequestService {
         inviteRequestRepository.save(req);
     }
 
+    /** Authenticated: current user submits referral details. You verify manually from backend and approve to generate join link. */
+    public void submitAsReferrer(String referrerUserId, String email, String phone, String linkedInUrl) {
+        InviteRequest req = new InviteRequest();
+        req.setReferrerUserId(referrerUserId);
+        req.setEmail(email != null ? email.trim() : "");
+        req.setPhone(phone != null ? phone.trim() : "");
+        req.setLinkedInUrl(linkedInUrl != null ? linkedInUrl.trim() : "");
+        req.setStatus(InviteRequest.Status.PENDING);
+        inviteRequestRepository.save(req);
+    }
+
     public List<InviteRequest> listAll() {
         return inviteRequestRepository.findAllByOrderByCreatedAtDesc();
     }

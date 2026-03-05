@@ -305,6 +305,20 @@ public class MeController {
         return ResponseEntity.ok(response);
     }
 
+    /** Submit referral details (email, phone, LinkedIn). Saved for manual verification; admin approves from backend to generate join link. */
+    @PostMapping("/invite-requests")
+    public ResponseEntity<?> createInviteRequest(Authentication auth, @RequestBody Map<String, Object> body) {
+        String userId = currentUserId(auth);
+        if (userId == null) return ResponseEntity.status(401).build();
+        String email = body.get("email") != null ? body.get("email").toString().trim() : null;
+        if (email == null || email.isBlank())
+            return ResponseEntity.badRequest().body(Map.of("message", "Email is required"));
+        String phone = body.get("phone") != null ? body.get("phone").toString().trim() : null;
+        String linkedInUrl = body.get("linkedInUrl") != null ? body.get("linkedInUrl").toString().trim() : null;
+        inviteRequestService.submitAsReferrer(userId, email, phone, linkedInUrl);
+        return ResponseEntity.ok(Map.of("message", "Details saved. We'll verify and get back to you."));
+    }
+
     private static Map<String, Object> toReferralResponse(Referral r) {
         Map<String, Object> m = new LinkedHashMap<>();
         m.put("id", r.getId());

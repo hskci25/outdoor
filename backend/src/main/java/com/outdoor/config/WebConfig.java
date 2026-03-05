@@ -25,18 +25,19 @@ public class WebConfig implements WebMvcConfigurer {
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
+        // Local dev + production; extra origins from CORS_ALLOWED_ORIGINS env
+        config.setAllowedOriginPatterns(List.of(
+            "http://localhost:*",
+            "http://127.0.0.1:*",
+            "https://outdoor-frontend.onrender.com",
+            "https://krew.life",
+            "https://www.krew.life"
+        ));
         if (StringUtils.hasText(corsAllowedOrigins)) {
-            List<String> origins = Arrays.stream(corsAllowedOrigins.split(","))
-                .map(String::trim)
-                .filter(StringUtils::hasText)
-                .toList();
-            if (!origins.isEmpty()) {
-                config.setAllowedOrigins(origins);
-            } else {
-                config.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
+            for (String o : corsAllowedOrigins.split(",")) {
+                String t = o.trim();
+                if (!t.isEmpty()) config.addAllowedOriginPattern(t);
             }
-        } else {
-            config.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
         }
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

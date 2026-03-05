@@ -59,10 +59,10 @@ public class CorsFilter extends OncePerRequestFilter implements Ordered {
     private boolean isAllowedOrigin(String origin) {
         if (origin == null) return false;
         String o = origin.trim();
+        // Always allow local dev origins
+        if (o.startsWith("http://localhost:") || o.startsWith("http://127.0.0.1:")) return true;
         if (ALWAYS_ALLOWED_ORIGINS.contains(o)) return true;
-        if (!StringUtils.hasText(corsAllowedOrigins)) {
-            return o.startsWith("http://localhost:") || o.startsWith("http://127.0.0.1:");
-        }
+        if (!StringUtils.hasText(corsAllowedOrigins)) return false;
         List<String> allowed = Arrays.stream(corsAllowedOrigins.split(","))
                 .map(String::trim)
                 .filter(StringUtils::hasText)
