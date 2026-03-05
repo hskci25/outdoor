@@ -68,6 +68,13 @@ export function Refer() {
     navigator.clipboard.writeText(url).catch(() => {})
   }
 
+  const copyRequestFormLink = () => {
+    const url = myInviteCode
+      ? `${window.location.origin}/invite-request?invite=${encodeURIComponent(myInviteCode)}`
+      : `${window.location.origin}/invite-request`
+    navigator.clipboard.writeText(url).catch(() => {})
+  }
+
   const copyInviteCode = () => {
     if (myInviteCode) navigator.clipboard.writeText(myInviteCode).catch(() => {})
   }
@@ -128,6 +135,14 @@ export function Refer() {
               >
                 <span className="material-symbols-outlined">link</span>
                 Copy Invite Link
+              </button>
+              <button
+                type="button"
+                onClick={copyRequestFormLink}
+                className="flex items-center justify-center gap-2 rounded-lg h-12 px-6 bg-primary/10 text-primary font-bold hover:bg-primary/20 transition-all border border-primary/30"
+              >
+                <span className="material-symbols-outlined">person_add</span>
+                Request form link
               </button>
               <button
                 type="button"

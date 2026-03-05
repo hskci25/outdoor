@@ -8,6 +8,7 @@ import com.outdoor.repository.MatchRepository;
 import com.outdoor.repository.ProfileRepository;
 import com.outdoor.repository.ReferralRepository;
 import com.outdoor.repository.UserRepository;
+import com.outdoor.service.InviteRequestService;
 import com.outdoor.service.ProfilePhotoService;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -33,22 +34,38 @@ public class MeController {
     private final UserRepository userRepository;
     private final ReferralRepository referralRepository;
     private final ProfilePhotoService profilePhotoService;
+    private final InviteRequestService inviteRequestService;
 
     public MeController(ProfileRepository profileRepository,
                         MatchRepository matchRepository,
                         UserRepository userRepository,
                         ReferralRepository referralRepository,
-                        ProfilePhotoService profilePhotoService) {
+                        ProfilePhotoService profilePhotoService,
+                        InviteRequestService inviteRequestService) {
         this.profileRepository = profileRepository;
         this.matchRepository = matchRepository;
         this.userRepository = userRepository;
         this.referralRepository = referralRepository;
         this.profilePhotoService = profilePhotoService;
+        this.inviteRequestService = inviteRequestService;
     }
 
     private String currentUserId(Authentication auth) {
         if (auth == null || auth.getPrincipal() == null) return null;
         return (String) auth.getPrincipal();
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getMe(Authentication auth) {
+        String userId = currentUserId(auth);
+        if (userId == null) return ResponseEntity.status(401).build();
+        return userRepository.findById(userId)
+                .map(u -> ResponseEntity.ok(Map.of(
+                        "userId", u.getId(),
+                        "email", u.getEmail() != null ? u.getEmail() : "",
+                        "isAdmin", inviteRequestService.isAdmin(u.getEmail())
+                )))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/invite-code")

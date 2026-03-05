@@ -4,6 +4,7 @@ com/outdoor/service/AuthService$AuthResult.class
 com/outdoor/config/JwtAuthFilter.class
 com/outdoor/entity/Referral.class
 com/outdoor/config/WebConfig.class
+com/outdoor/entity/InviteRequest$Status.class
 com/outdoor/repository/DeveloperTalkRepository.class
 com/outdoor/service/AuthService.class
 com/outdoor/service/MatchingService.class
@@ -14,18 +15,24 @@ com/outdoor/entity/DeveloperTalk.class
 com/outdoor/entity/Profile.class
 com/outdoor/repository/ReferralRepository.class
 com/outdoor/entity/Match$Status.class
+com/outdoor/config/CorsFilter.class
 com/outdoor/entity/Referral$Status.class
 com/outdoor/controller/AuthController$LoginRequest.class
 com/outdoor/service/AuthService$AuthException.class
 com/outdoor/repository/DeveloperTalkRegistrationRepository.class
+com/outdoor/repository/InviteRequestRepository.class
 com/outdoor/controller/MeController.class
 com/outdoor/repository/UserRepository.class
 com/outdoor/config/SecurityConfig.class
+com/outdoor/controller/InviteRequestController.class
 com/outdoor/entity/Match.class
 com/outdoor/entity/Skill.class
+com/outdoor/controller/InviteRequestController$SubmitInviteRequest.class
 com/outdoor/job/DailyMatchingJob.class
 com/outdoor/controller/AuthController.class
 com/outdoor/service/MatchingService$PairScore.class
+com/outdoor/controller/AdminController.class
+com/outdoor/service/InviteRequestService.class
 com/outdoor/entity/DeveloperTalkRegistration.class
 com/outdoor/controller/AuthController$RegisterRequest.class
 com/outdoor/repository/ProfileRepository.class
@@ -34,3 +41,4 @@ com/outdoor/config/MongoConfig.class
 com/outdoor/OutdoorApplication.class
 com/outdoor/controller/DevController.class
 com/outdoor/repository/SkillRepository.class
+com/outdoor/entity/InviteRequest.class

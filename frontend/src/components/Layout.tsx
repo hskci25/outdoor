@@ -22,6 +22,15 @@ export function Layout() {
     enabled: !!token,
   })
 
+  const { data: me } = useQuery({
+    queryKey: ['me'],
+    queryFn: async () => {
+      const { data } = await api.get<{ userId: string; email: string; isAdmin: boolean }>('/me')
+      return data
+    },
+    enabled: !!token,
+  })
+
   useEffect(() => {
     if (!token) navigate('/login', { replace: true })
   }, [token, navigate])
@@ -115,6 +124,19 @@ export function Layout() {
           <div className="pt-6 pb-2">
             <p className="px-3 text-[10px] font-bold uppercase tracking-widest text-slate-600">System</p>
           </div>
+          {me?.isAdmin && (
+            <Link
+              to="/app/admin"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
+                location.pathname === '/app/admin'
+                  ? 'bg-primary/10 text-primary border border-primary/20'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              <span className="material-symbols-outlined">admin_panel_settings</span>
+              <span className="text-sm font-medium">Admin</span>
+            </Link>
+          )}
           <Link
             to="/onboarding"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all"

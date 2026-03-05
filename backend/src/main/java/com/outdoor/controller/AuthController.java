@@ -34,6 +34,7 @@ public class AuthController {
         try {
             AuthService.AuthResult result = authService.register(
                     request.inviteCode(),
+                    request.joinToken(),
                     request.email(),
                     request.password(),
                     request.displayName()
@@ -67,7 +68,8 @@ public class AuthController {
     }
 
     public record RegisterRequest(
-            @NotBlank String inviteCode,
+            String inviteCode,
+            String joinToken,
             @NotBlank String email,
             @NotBlank String password,
             String displayName

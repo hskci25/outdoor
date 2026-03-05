@@ -37,6 +37,7 @@ public class SecurityConfig {
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**", "/health").permitAll()
+                .requestMatchers("/invite-request").permitAll()
                 .requestMatchers("/dev/**").permitAll()
                 .anyRequest().authenticated()
             );

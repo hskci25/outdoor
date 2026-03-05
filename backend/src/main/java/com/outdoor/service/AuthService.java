@@ -1,5 +1,6 @@
 package com.outdoor.service;
 
+import com.outdoor.entity.InviteRequest;
 import com.outdoor.entity.Profile;
 import com.outdoor.entity.User;
 import com.outdoor.repository.ProfileRepository;
@@ -21,6 +22,7 @@ public class AuthService {
     private final ProfileRepository profileRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final InviteRequestService inviteRequestService;
 
     @Value("${bootstrap.invite-code:OUTDOOR_FIRST}")
     private String bootstrapInviteCode;
@@ -28,30 +30,42 @@ public class AuthService {
     public AuthService(UserRepository userRepository,
                        ProfileRepository profileRepository,
                        PasswordEncoder passwordEncoder,
-                       JwtService jwtService) {
+                       JwtService jwtService,
+                       InviteRequestService inviteRequestService) {
         this.userRepository = userRepository;
         this.profileRepository = profileRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
+        this.inviteRequestService = inviteRequestService;
     }
 
     /**
-     * Register a new user. Accepts either the bootstrap invite code (when no users exist)
+     * Register a new user. Accepts either a join token (admin-approved invite), the bootstrap invite code,
      * or an existing user's invite code.
      */
-    public AuthResult register(String inviteCode, String email, String password, String displayName) {
+    public AuthResult register(String inviteCode, String joinToken, String email, String password, String displayName) {
         if (userRepository.existsByEmail(email)) {
             throw new AuthException("Email already registered");
         }
 
-        inviteCode = inviteCode != null ? inviteCode.trim() : "";
-        boolean isBootstrap = bootstrapInviteCode.equalsIgnoreCase(inviteCode) && userRepository.count() == 0;
-
         String referredByUserId = null;
-        if (!isBootstrap) {
-            User referrer = userRepository.findByInviteCode(inviteCode)
-                    .orElseThrow(() -> new AuthException("Invalid or expired invite code"));
-            referredByUserId = referrer.getId();
+
+        if (joinToken != null && !joinToken.isBlank()) {
+            InviteRequest req = inviteRequestService.validateJoinToken(joinToken.trim(), email)
+                    .orElseThrow(() -> new AuthException("Invalid or expired join link. Use the link shared with you and the same email."));
+            referredByUserId = req.getReferrerUserId();
+            inviteRequestService.markTokenUsed(joinToken.trim());
+        } else {
+            String code = inviteCode != null ? inviteCode.trim() : "";
+            if (code.isBlank()) {
+                throw new AuthException("Invite code or join link required");
+            }
+            boolean isBootstrap = bootstrapInviteCode.equalsIgnoreCase(code) && userRepository.count() == 0;
+            if (!isBootstrap) {
+                User referrer = userRepository.findByInviteCode(code)
+                        .orElseThrow(() -> new AuthException("Invalid or expired invite code"));
+                referredByUserId = referrer.getId();
+            }
         }
 
         String newInviteCode = generateUniqueInviteCode();

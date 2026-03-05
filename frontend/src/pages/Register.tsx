@@ -7,6 +7,7 @@ export function Register() {
   const [password, setPassword] = useState('')
   const [displayName, setDisplayName] = useState('')
   const [inviteCode, setInviteCode] = useState('')
+  const [joinToken, setJoinToken] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -14,20 +15,29 @@ export function Register() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const invite = params.get('invite')
+    const join = params.get('join')
     if (invite) setInviteCode(invite)
+    if (join) setJoinToken(join)
   }, [])
+
+  const hasJoinLink = !!joinToken.trim()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
     setLoading(true)
     try {
-      const { data } = await api.post<{ token: string }>('/auth/register', {
+      const payload: Record<string, string | undefined> = {
         email,
         password,
         displayName: displayName || undefined,
-        inviteCode: inviteCode.trim() || undefined,
-      })
+      }
+      if (hasJoinLink) {
+        payload.joinToken = joinToken.trim()
+      } else {
+        payload.inviteCode = inviteCode.trim() || undefined
+      }
+      const { data } = await api.post<{ token: string }>('/auth/register', payload)
       localStorage.setItem('token', data.token)
       navigate('/onboarding', { replace: true })
     } catch (err: unknown) {
@@ -50,20 +60,29 @@ export function Register() {
       <main className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md rounded-xl border border-primary/30 bg-[#1a130c]/80 p-8 shadow-2xl">
           <h1 className="text-2xl font-bold text-slate-100 mb-2">Sign up</h1>
-          <p className="text-slate-400 text-sm mb-6">Invite only. Enter your invite code.</p>
-          <p className="text-primary/90 text-xs mb-4 font-mono">First user? Use code: <strong>OUTDOOR_FIRST</strong></p>
+          {hasJoinLink ? (
+            <p className="text-slate-400 text-sm mb-6">Complete registration. Use the same email we have on file.</p>
+          ) : (
+            <>
+              <p className="text-slate-400 text-sm mb-6">Invite only. Enter your invite code.</p>
+              <p className="text-primary/90 text-xs mb-4 font-mono">First user? Use code: <strong>OUTDOOR_FIRST</strong></p>
+            </>
+          )}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Invite code</label>
-              <input
-                type="text"
-                value={inviteCode}
-                onChange={(e) => setInviteCode(e.target.value)}
-                className="w-full rounded-lg h-11 px-4 bg-[#0a0a0a] border border-primary/30 text-slate-100 font-mono placeholder:text-slate-500 focus:outline-none focus:border-primary"
-                placeholder="XXXX-XXXX-XXXX"
-                required
-              />
-            </div>
+            {!hasJoinLink && (
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-1">Invite code</label>
+                <input
+                  type="text"
+                  value={inviteCode}
+                  onChange={(e) => setInviteCode(e.target.value)}
+                  className="w-full rounded-lg h-11 px-4 bg-[#0a0a0a] border border-primary/30 text-slate-100 font-mono placeholder:text-slate-500 focus:outline-none focus:border-primary"
+                  placeholder="XXXX-XXXX-XXXX"
+                  required
+                />
+              </div>
+            )}
+            {hasJoinLink && <input type="hidden" name="joinToken" value={joinToken} />}
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-1">Email</label>
               <input

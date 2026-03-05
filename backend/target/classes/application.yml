@@ -29,3 +29,7 @@ bootstrap:
 cors:
   allowed-origins: ${CORS_ALLOWED_ORIGINS:}
 
+# Admin: comma-separated emails that can review and approve invite requests
+admin:
+  emails: ${ADMIN_EMAILS:}
+

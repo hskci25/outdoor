@@ -1,6 +1,8 @@
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/service/JwtService.java
+/Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/config/CorsFilter.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/DeveloperTalk.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/config/MongoConfig.java
+/Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/controller/AdminController.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/OutdoorApplication.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/controller/DevController.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/service/AuthService.java
@@ -16,13 +18,17 @@
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/MatchRepository.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/User.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/SkillRepository.java
+/Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/service/InviteRequestService.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/Profile.java
+/Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/InviteRequest.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/config/WebConfig.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/UserRepository.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/ProfileRepository.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/Skill.java
+/Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/InviteRequestRepository.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/DeveloperTalkRegistration.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/service/MatchingService.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/DeveloperTalkRepository.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/repository/ReferralRepository.java
+/Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/controller/InviteRequestController.java
 /Users/ashutosh/Desktop/outdoor/backend/src/main/java/com/outdoor/entity/Match.java

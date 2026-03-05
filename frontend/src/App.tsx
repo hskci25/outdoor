@@ -10,6 +10,8 @@ import { Matches } from './pages/Matches'
 import { Refer } from './pages/Refer'
 import { Events } from './pages/Events'
 import { Messages } from './pages/Messages'
+import { InviteRequest } from './pages/InviteRequest'
+import { Admin } from './pages/Admin'
 
 const queryClient = new QueryClient()
 
@@ -21,6 +23,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/invite-request" element={<InviteRequest />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/app" element={<Layout />}>
             <Route index element={<Dashboard />} />
@@ -29,6 +32,7 @@ function App() {
             <Route path="events" element={<Events />} />
             <Route path="messages" element={<Messages />} />
             <Route path="refer" element={<Refer />} />
+            <Route path="admin" element={<Admin />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
