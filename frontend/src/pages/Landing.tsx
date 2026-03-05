@@ -1,15 +1,56 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { api } from '../api/client'
 
 export function Landing() {
+  const [searchParams] = useSearchParams()
   const [inviteCode, setInviteCode] = useState('')
   const navigate = useNavigate()
+
+  const [requestEmail, setRequestEmail] = useState('')
+  const [requestPhone, setRequestPhone] = useState('')
+  const [requestLinkedIn, setRequestLinkedIn] = useState('')
+  const [requestError, setRequestError] = useState('')
+  const [requestLoading, setRequestLoading] = useState(false)
+  const [requestSubmitted, setRequestSubmitted] = useState(false)
+
+  const inviteFromUrl = searchParams.get('invite') ?? ''
+
+  useEffect(() => {
+    if (inviteFromUrl) setInviteCode(inviteFromUrl)
+  }, [inviteFromUrl])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const code = inviteCode.trim().toUpperCase().replace(/\s/g, '-')
     if (code) navigate(`/register?invite=${encodeURIComponent(code)}`)
     else navigate('/register')
+  }
+
+  const handleRequestSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setRequestError('')
+    setRequestLoading(true)
+    const code = inviteCode.trim() || inviteFromUrl.trim()
+    if (!code) {
+      setRequestError('Invite code is required.')
+      setRequestLoading(false)
+      return
+    }
+    try {
+      await api.post('/invite-request', {
+        inviteCode: code,
+        email: requestEmail.trim(),
+        phone: requestPhone.trim() || undefined,
+        linkedInUrl: requestLinkedIn.trim() || undefined,
+      })
+      setRequestSubmitted(true)
+    } catch (err: unknown) {
+      const ax = err as { response?: { data?: { message?: string } }; message?: string }
+      setRequestError(ax.response?.data?.message ?? ax.message ?? 'Request failed. Please try again.')
+    } finally {
+      setRequestLoading(false)
+    }
   }
 
   return (
@@ -101,6 +142,80 @@ export function Landing() {
               </div>
             </div>
           </div>
+
+          {/* Request invite section — same page, below */}
+          <section className="w-full max-w-xl mt-20 md:mt-28 px-4">
+            <div className="rounded-xl border border-primary/30 bg-[#1a130c]/50 p-6 md:p-8">
+              <h3 className="text-slate-100 text-lg font-bold mb-1">Request an invite</h3>
+              <p className="text-slate-500 text-sm mb-6">Share your details. We&apos;ll review and send you a join link.</p>
+              {requestSubmitted ? (
+                <div className="text-center py-4">
+                  <span className="material-symbols-outlined text-4xl text-primary mb-2">check_circle</span>
+                  <p className="text-slate-200 font-medium">Request received</p>
+                  <p className="text-slate-500 text-sm mt-1">We&apos;ll get back to you at <strong className="text-slate-300">{requestEmail}</strong>.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleRequestSubmit} className="flex flex-col gap-4">
+                  {!inviteFromUrl && (
+                    <div>
+                      <label className="block text-xs font-medium text-slate-400 mb-1">Invite code</label>
+                      <input
+                        type="text"
+                        value={inviteCode}
+                        onChange={(e) => setInviteCode(e.target.value)}
+                        className="w-full rounded-lg h-11 px-4 bg-[#0a0a0a] border border-primary/30 text-slate-100 font-mono placeholder:text-slate-500 focus:outline-none focus:border-primary text-sm"
+                        placeholder="From your referrer"
+                        required
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-400 mb-1">Email</label>
+                    <input
+                      type="email"
+                      value={requestEmail}
+                      onChange={(e) => setRequestEmail(e.target.value)}
+                      className="w-full rounded-lg h-11 px-4 bg-[#0a0a0a] border border-primary/30 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary text-sm"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-400 mb-1">Phone number</label>
+                    <input
+                      type="tel"
+                      value={requestPhone}
+                      onChange={(e) => setRequestPhone(e.target.value)}
+                      className="w-full rounded-lg h-11 px-4 bg-[#0a0a0a] border border-primary/30 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary text-sm"
+                      placeholder="Contact number"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-400 mb-1">LinkedIn profile link</label>
+                    <input
+                      type="url"
+                      value={requestLinkedIn}
+                      onChange={(e) => setRequestLinkedIn(e.target.value)}
+                      className="w-full rounded-lg h-11 px-4 bg-[#0a0a0a] border border-primary/30 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary text-sm"
+                      placeholder="https://linkedin.com/in/..."
+                    />
+                  </div>
+                  {requestError && (
+                    <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                      {requestError}
+                    </div>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={requestLoading}
+                    className="w-full rounded-lg h-11 bg-primary/20 text-primary font-semibold border border-primary/40 hover:bg-primary/30 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {requestLoading ? 'Submitting…' : 'Submit request'}
+                  </button>
+                </form>
+              )}
+            </div>
+          </section>
         </main>
 
         <footer className="mt-auto py-10 px-4 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-primary/10">

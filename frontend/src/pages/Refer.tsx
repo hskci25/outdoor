@@ -70,8 +70,8 @@ export function Refer() {
 
   const copyRequestFormLink = () => {
     const url = myInviteCode
-      ? `${window.location.origin}/invite-request?invite=${encodeURIComponent(myInviteCode)}`
-      : `${window.location.origin}/invite-request`
+      ? `${window.location.origin}/?invite=${encodeURIComponent(myInviteCode)}`
+      : window.location.origin
     navigator.clipboard.writeText(url).catch(() => {})
   }
 

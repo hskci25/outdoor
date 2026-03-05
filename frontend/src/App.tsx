@@ -1,4 +1,11 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useSearchParams } from 'react-router-dom'
+
+function InviteRequestRedirect() {
+  const [searchParams] = useSearchParams()
+  const invite = searchParams.get('invite')
+  const to = invite ? `/?invite=${encodeURIComponent(invite)}` : '/'
+  return <Navigate to={to} replace />
+}
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Layout } from './components/Layout'
 import { Landing } from './pages/Landing'
@@ -10,7 +17,6 @@ import { Matches } from './pages/Matches'
 import { Refer } from './pages/Refer'
 import { Events } from './pages/Events'
 import { Messages } from './pages/Messages'
-import { InviteRequest } from './pages/InviteRequest'
 import { Admin } from './pages/Admin'
 
 const queryClient = new QueryClient()
@@ -23,7 +29,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/invite-request" element={<InviteRequest />} />
+          <Route path="/invite-request" element={<InviteRequestRedirect />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/app" element={<Layout />}>
             <Route index element={<Dashboard />} />
